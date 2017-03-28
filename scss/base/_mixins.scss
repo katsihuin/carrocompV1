@@ -1,0 +1,19 @@
+// center vertically and horizontally
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin toTheSide {
+  position: relative; 
+  z-index: 1000; /* The z-index should be higher than Google Maps */
+  width: 300px;
+  margin: 60px;
+  padding: 10px;
+  background: white;
+  height: auto;
+  opacity: 0.9; /* Set the opacity for a slightly transparent Google Form */ 
+  color: black;
+}

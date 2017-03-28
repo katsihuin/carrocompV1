@@ -1,0 +1,120 @@
+/* line 1, ../../scss/base/_reset.scss */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 2, ../../scss/base/_base.scss */
+section {
+  margin: 0 auto;
+}
+
+/* line 7, ../../scss/base/_base.scss */
+section a {
+  text-decoration: none;
+  font-size: 30px;
+}
+
+/* line 12, ../../scss/base/_base.scss */
+#map {
+  height: 1000px;
+}
+
+/* contenedor del taxi escogido */
+/* line 17, ../../scss/base/_base.scss */
+.taxi {
+  position: relative;
+  background: linear-gradient(#3f0380, #fe00bb);
+  -webkit-border-radius: 55px;
+  -moz-border-radius: 55px;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* line 29, ../../scss/base/_base.scss */
+.taxi.active {
+  background: #FFF;
+}
+
+/* line 32, ../../scss/base/_base.scss */
+.taxi:after {
+  position: absolute;
+  display: block;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 40px;
+  content: "";
+  /*background-image: url(../img/taxi1.png);*/
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+/* cambio de color en mouseover*/
+/* line 48, ../../scss/base/_base.scss */
+.list {
+  padding: 0;
+}
+
+/* line 52, ../../scss/base/_base.scss */
+.list.active {
+  background: #F3F3F5;
+}
+
+/* line 56, ../../scss/base/_base.scss */
+.list.active small, .purple {
+  color: #3D0884;
+}
+
+/* line 60, ../../scss/base/_base.scss */
+#map {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  /* Set z-index to 0 as it will be on a layer below the contact form */
+}
+
+/* line 69, ../../scss/base/_base.scss */
+#contactform {
+  position: relative;
+  z-index: 1000;
+  /* The z-index should be higher than Google Maps */
+  width: 300px;
+  margin: 60px;
+  padding: 10px;
+  background: white;
+  height: auto;
+  opacity: 0.9;
+  /* Set the opacity for a slightly transparent Google Form */
+  color: black;
+}
+
+/* line 81, ../../scss/base/_base.scss */
+#car-list-container {
+  position: relative;
+  z-index: 1000;
+  /* The z-index should be higher than Google Maps */
+  width: 300px;
+  margin: 60px;
+  padding: 10px;
+  background: white;
+  height: auto;
+  opacity: 0.9;
+  /* Set the opacity for a slightly transparent Google Form */
+  color: black;
+}
+
+/* line 1, ../../scss/layout/_footer.scss */
+header {
+  z-index: 1000;
+}

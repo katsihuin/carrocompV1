@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Examen Herramientas Productividad</title>
+	<!--REQUIRED STYLE SHEETS-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="src/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+	<!--<div class="navbar navbar-inverse navbar-fixed-top">-->
+        <header>
+		    <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Cambiar Navegacion</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                         <a href="#" class="navbar-brand">carrocomp!</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" aria-expanded="false">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="cake.html">Cake Form</a></li>
+                            <li><a href="#" id="btn-historial">Otra Seccion</a></li>
+                        </ul>
+                    </div>
+                </div>
+	        </nav>
+
+	</header><!--END NAV SECTION -->
+	<div id="home-sec">   
+		<div class="fluid-container"  >
+		    <!--Sección de Mapa-->
+	
+            <div id="app-content">
+                <div id="map">
+                    <!--contenedor del mapa-->
+                </div>
+            </div>
+
+		</div>
+	</div><!--END HOME SECTION-->  
+	
+	<!--Contenedor-->
+    <section id="info"  >
+    <div class="container">
+      <div id="setPickUp">
+           <div id="contactform">
+              <div id="requestLyft" >
+            <!--Sección de la informacion de lyft cars con el botón de Request Lyft-->
+                <div class="row" >
+	            <div class="col-xs-12 text-center">
+	                <form role="form" class="form-horizontal form-signup" >
+	                    <div class="form-group">
+                         <div id="floating-panel">
+                              <label for="txtOrigen" class="control-label">ORIGEN:</label>
+                              <select id="start" onchange="calcRoute();">
+                                <option value="">Seleccione</option>
+                                 <option value="arica">Arica</option>
+                                 <option value="iquique">Iquique</option>
+                                 <option value="antofagasta">Antofagasta</option>
+                                 <option value="serena">La Serena</option>
+                                 <option value="valparaiso">Valparaiso</option>
+                                 <option value="santiago">Santiago</option>
+                                 <option value="rancagua">Rancagua</option>
+                                 <option value="talca">Talca</option>
+                                 <option value="concepcion">Concepción</option>
+                                 <option value="valdivia">Valdivia</option>
+                                 <option value="puerto">Puerto Montt</option>
+                                 <option value="coyhaique">Coyhaique</option>
+                                 <option value="punta">Punta Arenas</option>
+                              </select>
+                              <br>
+                              <label for="txtDestino" class="control-label">DESTINO:</label>
+                              <select id="end"  onchange="calcRoute();">
+                                 <option value="">Seleccione</option>
+                                 <option value="arica">Arica</option>
+                                 <option value="iquique">Iquique</option>
+                                 <option value="antofagasta">Antofagasta</option>
+                                 <option value="serena">La Serena</option>
+                                 <option value="valparaiso">Valparaiso</option>
+                                 <option value="santiago">Santiago</option>
+                                 <option value="rancagua">Rancagua</option>
+                                 <option value="talca">Talca</option>
+                                 <option value="concepcion">Concepción</option>
+                                 <option value="valdivia">Valdivia</option>
+                                 <option value="puerto">Puerto Montt</option>
+                                 <option value="coyhaique">Coyhaique</option>
+                                 <option value="punta">Punta Arenas</option>
+                                 <div id="map"></div>
+                              </select>
+                           </div>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+            <!--Botón Request Lyft-->    
+            <div class="text-center">
+               <a href="#"><button type="button" class="btnShowCars" id="btnShowCars">Buscar</button></a>  
+            </div>
+          </div>
+        </div>
+        <div id="car-list-container" style="display:none;">
+           <div class="row text-center" >
+                <h2>VEHICULO</h2>
+                <p>seleccione</p>
+                <hr>
+	            <div class="col-xs-12 list-car" >
+                   <div class="form-group ">
+                       <div class="col-sm-2 col-xs-2 ">
+                          <label class="radio-inline">
+                                <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
+                            </label>
+                        </div>
+                        <div class= "col-sm-3 col-xs-3">
+                          <img src="src/img/moto.png" id="carImgPickUp" alt="" class="img-responsive">
+                        </div>
+                        <div class= "col-sm-7 col-xs-7">
+                          <span id="carNamePickUp">Motocicleta</span><br><small id="carSeatsPickUp">maximo 2 pasajeros</small>
+                        </div>                  
+                    </div>
+                    <div class="form-group">
+                       <div class="col-sm-2 col-xs-2 ">
+                          <label class="radio-inline">
+                                <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
+                            </label>
+                        </div>
+                        <div class= "col-sm-3 col-xs-3">
+                          <img src="src/img/moto.png" id="carImgPickUp" alt="" class="img-responsive">
+                        </div>
+                        <div class= "col-sm-7 col-xs-7">
+                          <span id="carNamePickUp">Motocicleta</span><br><small id="carSeatsPickUp">maximo 2 pasajeros</small>
+                        </div>                  
+                    </div>
+                    <div class="form-group">
+                       <div class="col-sm-2 col-xs-2">
+                          <label class="radio-inline">
+                                <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
+                            </label>
+                        </div>
+                        <div class= "col-sm-3 col-xs-3">
+                          <img src="src/img/moto.png" id="carImgPickUp" alt="" class="img-responsive">
+                        </div>
+                        <div class= "col-sm-7 col-xs-7">
+                          <span id="carNamePickUp">Motocicleta</span><br><small id="carSeatsPickUp">maximo 2 pasajeros</small>
+                        </div>                  
+                    </div>
+                    <div class="form-group">
+                       <div class="col-sm-2 col-xs-2">
+                          <label class="radio-inline">
+                                <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
+                            </label>
+                        </div>
+                        <div class= "col-sm-3 col-xs-3">
+                          <img src="src/img/moto.png" id="carImgPickUp" alt="" class="img-responsive">
+                        </div>
+                        <div class= "col-sm-7 col-xs-7">
+                          <span id="carNamePickUp">Motocicleta</span><br><small id="carSeatsPickUp">maximo 2 pasajeros</small>
+                        </div>                  
+                    </div>
+                    <div class="form-group">
+	                        <label for="txtName" class="control-label col-xs-9">Cantidad de Pasajeros:</label>
+	                        <div class="col-xs-3 input-box">
+	                            <input id="txtName" name="txtName" type="text" class="form-control" placeholder="" onkeyup="validacion('txtName');">
+	                            <span class="help-block" style="display: none;">#max</span>
+	                        </div>
+	                    </div>
+                    <!--Botón Request Lyft-->    
+                    <div class="text-center">
+                       <a href="#"><button type="button" class="btn-share" id="btn-share">Compartir Carro</button></a>  
+                    </div>
+               </div>
+           </div>
+        </div>
+    </div>    
+    </div>
+    </section> 
+	
+		<!--END ABOUT SECTION-->
+	<section id="calculator" >
+		<div class="container">
+		</div>
+	</section><!--END PROJECT SECTION-->
+	<div id="footer">
+		2014 www.yourdomain.com | All Right Reserved  
+	</div><!-- END FOOTER SECTION -->
+	
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type='text/javascript' src='src/js/bootstrap.min.js'></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ3y_0vbIq_Uszh0b56NqnZ1vjGI-zayc&libraries=places&callback=init"
+         async defer></script>
+  <script type='text/javascript' src="src/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+
+section {
+	margin: 0 auto;
+
+}
+
+section a {
+	text-decoration: none;
+	font-size: 30px;
+}
+
+#map {
+  height: 1000px;
+}
+
+/* contenedor del taxi escogido */
+.taxi {
+    position: relative;
+    background: linear-gradient(rgb(63,3,128), rgb(254,0,187));
+    -webkit-border-radius: 55px;
+    -moz-border-radius: 55px;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.taxi.active{
+    background: #FFF;
+}
+.taxi:after {
+    position: absolute;
+    display: block;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    content: "";
+    /*background-image: url(../img/taxi1.png);*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+/* cambio de color en mouseover*/
+.list {
+  padding: 0;
+}
+
+.list.active {
+    background: #F3F3F5;
+
+}
+.list.active small, .purple {
+    color: #3D0884;
+}
+
+#map { 
+  height: 100%; 
+  width: 100%; 
+  position:absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: 0; /* Set z-index to 0 as it will be on a layer below the contact form */
+}
+
+#contactform { 
+  position: relative; 
+  z-index: 1000; /* The z-index should be higher than Google Maps */
+  width: 300px;
+  margin: 60px;
+  padding: 10px;
+  background: white;
+  height: auto;
+  opacity: 0.9; /* Set the opacity for a slightly transparent Google Form */ 
+  color: black;
+}
+
+#car-list-container{
+position: relative; 
+  z-index: 1000; /* The z-index should be higher than Google Maps */
+  width: 300px;
+  margin: 60px;
+  padding: 10px;
+  background: white;
+  height: auto;
+  opacity: 0.9; /* Set the opacity for a slightly transparent Google Form */ 
+  color: black;
+}
