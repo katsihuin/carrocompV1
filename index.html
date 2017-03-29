@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="src/css/bootstrap.css">
-    <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/sweetalert.css">
 </head>
 <body>
 	<!--<div class="navbar navbar-inverse navbar-fixed-top">-->
@@ -57,8 +58,8 @@
             <!--Sección de la informacion de lyft cars con el botón de Request Lyft-->
                 <div class="row" >
 	            <div class="col-xs-12 text-center">
-	                <form role="form" class="form-horizontal form-signup" >
-	                    <div class="form-group">
+	                <form role="form" class="form-horizontal form-signup" id="list-city">
+	                    <div class="form-group" >
                          <div id="floating-panel">
                               <label for="txtOrigen" class="control-label">ORIGEN:</label>
                               <select id="start" onchange="calcRoute();">
@@ -103,17 +104,17 @@
 	        </div>
             <!--Botón Request Lyft-->    
             <div class="text-center">
-               <a href="#"><button type="button" class="btnShowCars" id="btnShowCars">Buscar</button></a>  
+               <a href="#"><button type="button" class="btn-search" id="btn-search">Buscar</button></a>  
             </div>
           </div>
         </div>
-        <div id="car-list-container" style="display:none;">
+        <div id="car-list-container">
            <div class="row text-center" >
                 <h2>VEHICULO</h2>
                 <p>seleccione</p>
                 <hr>
 	            <div class="col-xs-12 list-car" >
-                   <div class="form-group ">
+                   <div class="form-group list">
                        <div class="col-sm-2 col-xs-2 ">
                           <label class="radio-inline">
                                 <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
@@ -126,7 +127,7 @@
                           <span id="carNamePickUp">Motocicleta</span><br><small id="carSeatsPickUp">maximo 2 pasajeros</small>
                         </div>                  
                     </div>
-                    <div class="form-group">
+                    <div class="form-group list">
                        <div class="col-sm-2 col-xs-2 ">
                           <label class="radio-inline">
                                 <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
@@ -139,7 +140,7 @@
                           <span id="carNamePickUp">Motocicleta</span><br><small id="carSeatsPickUp">maximo 2 pasajeros</small>
                         </div>                  
                     </div>
-                    <div class="form-group">
+                    <div class="form-group list">
                        <div class="col-sm-2 col-xs-2">
                           <label class="radio-inline">
                                 <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
@@ -152,7 +153,7 @@
                           <span id="carNamePickUp">Motocicleta</span><br><small id="carSeatsPickUp">maximo 2 pasajeros</small>
                         </div>                  
                     </div>
-                    <div class="form-group">
+                    <div class="form-group list">
                        <div class="col-sm-2 col-xs-2">
                           <label class="radio-inline">
                                 <input id="male" type="radio" name="genderRadios" value="M" onclick="validacion('genderRadios')">
@@ -198,5 +199,13 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ3y_0vbIq_Uszh0b56NqnZ1vjGI-zayc&libraries=places&callback=init"
          async defer></script>
   <script type='text/javascript' src="src/js/custom.js"></script>
+  <script type='text/javascript' src="src/js/scroll.js"></script>
+  <script type='text/javascript' src="src/js/ciudades.js"></script>
+  <script type='text/javascript' src="src/js/moto.js"></script>
+  <script type='text/javascript' src="src/js/auto.js"></script>
+  <script type='text/javascript' src="src/js/camioneta.js"></script>
+  <script type='text/javascript' src="src/js/camion.js"></script>
+  <script type='text/javascript' src="src/js/carros.js"></script>
+    <script type='text/javascript' src="src/js/sweetalert-dev.js"></script>
 </body>
 </html>

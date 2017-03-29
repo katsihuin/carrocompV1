@@ -16,10 +16,45 @@
     ciudades["Punto Arenas"]=3004;
 
 
+$(document).on('ready', init);
+
+
+function init() {
+    $('#btn-search').on('click', onValidateCity);
+    $('#btn-share').on('click', onValidateVehicle);
+    $("car-list-container").hide();
+}
+
+function onValidateCity() {    
+    
+    var origen = $('#start');
+    var destino = $('#end');
+    
+    if (origen.val() === ''||destino.val() === '') {
+        
+        swal({
+                title: "¡Formulario Incompleto!",
+                text:"Desbes escoger dos ciudades",
+            });
+    
+    } else {
+       
+        $('#car-list-container').show();
+        $('#btn-share').attr('disabled', false);
+        calculateDistance(); 
+    }          
+}
+
+function calculateDistance() {
+    var distance = getDistanceStart() + getDistanceEnd();
+    return distance;
+}
+
+
 //esta funcion encuentra la distancia por cada ciudad
-function getDistance()
+function getDistanceStart()
 {
-    var distanceKMS=0;
+    var distanceStart=0;
     //Get a reference to the form
     var theForm = document.forms["list-city"];
     //Get a reference to the select id=
@@ -27,37 +62,53 @@ function getDistance()
      
     //set cakeFilling Price equal to value user chose
     //For example filling_kms["Lemon".value] would be equal to 5
-    distanceKMS = filling_kms[selectedCity.value];
+    distanceStart = filling_kms[selectedCity.value];
 
     //finally we return 
-    return distanceKMS;
+    return distanceStart;
 }
 
+//esta funcion encuentra la distancia por cada ciudad
+function getDistanceEnd()
+{
+    var distanceEnd=0;
+    //Get a reference to the form
+    var theForm = document.forms["list-city"];
+    //Get a reference to the select id=
+     var selectedCity = theForm.elements["end"];
+     
+    //set cakeFilling Price equal to value user chose
+    //For example filling_kms["Lemon".value] would be equal to 5
+    distanceEnd = filling_kms[selectedCity.value];
+
+    //finally we return 
+    return distanceSEnd;
+}
 function get_regiones(){
 	return [
 		{
 			name: "arica",
-			distance: 0
+			distance: 2059
 		},
 		{
 			name: "iquique",
-			distance: 0
+			distance: 1789
 		},
 		{
 			name: "antofagasta",
-			distance: 0
+			distance: 1368
 		},
 		{
 			name: "copiapo",
-			distance: 0
+			distance: 1567
 		},
 		{
 			name: "la_serena",
-			distance: 0
+			distance: 470
 		},
 		{
 			name: "valparaiso",
-			distance: 0
+			distance: 116
 		},
 		{
 			name: "rancagua",
@@ -65,35 +116,35 @@ function get_regiones(){
 		},
 		{
 			name: "talca",
-			distance: 0
+			distance: 84
 		},
 		{
 			name: "concepcion",
-			distance: 0
+			distance: 257
 		},
 		{
 			name: "temuco",
-			distance: 0
+			distance: 500
 		},
 		{
 			name: "valdivia",
-			distance: 0
+			distance: 690
 		},
 		{
 			name: "puerto_montt",
-			distance: 0
+			distance: 848
 		},
 		{
 			name: "coyhaique",
-			distance: 0
+			distance: 1032
 		},
 		{
 			name: "punta_arenas",
-			distance: 0
+			distance: 1888
 		},
 		{
 			name: "santiago",
-			distance: 0
+			distance: 3004
 		}
 	]
 }
