@@ -125,9 +125,6 @@ function getDistanceEnd(){
 function calculateDistance() {
     var distance = parseInt(getDistanceStart())+ parseInt(getDistanceEnd());
     //display the result
-    var divobj = document.getElementById('totalPrice');
-    divobj.style.display='block';
-    divobj.innerHTML = "Total Price For the Cake $"+distance;
 }
 
 function onMouseOver() {
@@ -162,17 +159,17 @@ function onClickList(event){
     	localStorage.setItem('type',1); 
     	chooseCar = true;
     }
-	if(name=='Lyft')
+	if(name=='Automovil')
     {
     	localStorage.setItem('type',2); 
     	chooseCar = true;
     }
-    if(name=='Plus')
+    if(name=='Camioneta')
     {
     	localStorage.setItem('type',3);
     	chooseCar = true;
     }
-    if(name=='Premier')
+    if(name=='Camion')
     {
     	localStorage.setItem('type',4);
     	chooseCar = true;
@@ -180,42 +177,3 @@ function onClickList(event){
 }
 
 
-function createMarker(position) {
-  map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-  currentMarker = new google.maps.Marker({
-    position: latlng,
-    map: map,
-    title:"Aqui estoy!!!",
-    icon: "img/person2.png"
-  });
-
-  var markerOptions = {
-    //position:latLng,
-    map: map,
-    animation: google.maps.Animation.DROP,
-    clickable: true,
-    title: '¡Estoy Aqui!',
-    icon: 'img/person2.png'
-  }
-  //var marker = new google.maps.Marker(markerOptions);
-
-  var marker = new google.maps.Marker({
-  //position: new google.maps.LatLng(latitude + 0.002, longitude),
-  map: map,
-  animation: google.maps.Animation.DROP,
-  clickable: true,
-  title: 'taxi lyft',
-  icon: 'img/coche2x.png'});
-
-  var marker = new google.maps.Marker({
- // position: new google.maps.LatLng(latitude + 0.002, longitude),
-  map: map,
-  animation: google.maps.Animation.DROP,
-  clickable: true,
-  title: 'taxi lyft',
-  icon: 'img/coche3x.png'});
-  
-
-  var geocoder = new google.maps.Geocoder();
-  getAddress(geocoder, currentMarker.position,'address');
-}
