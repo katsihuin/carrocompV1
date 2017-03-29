@@ -34,22 +34,15 @@ function onValidateCity() {
         
         swal({
                 title: "¡Formulario Incompleto!",
-                text:"Desbes escoger dos ciudades",
+                text:"Desbes escoger ciudad de origen y destino",
             });
     
     } else {
-       
-        $('#car-list-container').show();
+        $('#car-list-container').css({ 'display': 'inline-block'});
         $('#btn-share').attr('disabled', false);
         calculateDistance(); 
     }          
 }
-
-function calculateDistance() {
-    var distance = getDistanceStart() + getDistanceEnd();
-    return distance;
-}
-
 
 //esta funcion encuentra la distancia por cada ciudad
 function getDistanceStart()
@@ -84,6 +77,11 @@ function getDistanceEnd()
     //finally we return 
     return distanceSEnd;
 }
+function calculateDistance() {
+    var distance = getDistanceStart() + getDistanceEnd();
+    return distance;
+}
+
 function get_regiones(){
 	return [
 		{
