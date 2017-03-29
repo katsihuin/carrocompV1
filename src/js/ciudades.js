@@ -1,4 +1,4 @@
- var ciudades = new Array();
+ /*var ciudades = new Array();
     ciudades["Iquique"]=2059;
     ciudades["Antofagasta"]=1789;
     ciudades["Calama"]=1368;
@@ -55,7 +55,7 @@ function getDistanceStart()
      
     //set cakeFilling Price equal to value user chose
     //For example filling_kms["Lemon".value] would be equal to 5
-    distanceStart = filling_kms[selectedCity.value];
+    distanceStart = ciudades[selectedCity.value];
 
     //finally we return 
     return distanceStart;
@@ -72,15 +72,88 @@ function getDistanceEnd()
      
     //set cakeFilling Price equal to value user chose
     //For example filling_kms["Lemon".value] would be equal to 5
-    distanceEnd = filling_kms[selectedCity.value];
+    distanceEnd = ciudades[selectedCity.value];
 
     //finally we return 
-    return distanceSEnd;
+    return distanceEnd;
 }
 function calculateDistance() {
     var distance = getDistanceStart() + getDistanceEnd();
-    return distance;
+    //display the result
+    var divobj = document.getElementById('totalPrice');
+    divobj.style.display='block';
+    divobj.innerHTML = "Total Price For the Cake $"+distance;
 }
+
+
+
+function get_regiones(){
+	return [
+		{
+			name: "arica",
+			distance: 2059
+		},
+		{
+			name: "iquique",
+			distance: 1789
+		},
+		{
+			name: "antofagasta",
+			distance: 1368
+		},
+		{
+			name: "copiapo",
+			distance: 1567
+		},
+		{
+			name: "la_serena",
+			distance: 470
+		},
+		{
+			name: "valparaiso",
+			distance: 116
+		},
+		{
+			name: "rancagua",
+			distance: 0
+		},
+		{
+			name: "talca",
+			distance: 84
+		},
+		{
+			name: "concepcion",
+			distance: 257
+		},
+		{
+			name: "temuco",
+			distance: 500
+		},
+		{
+			name: "valdivia",
+			distance: 690
+		},
+		{
+			name: "puerto_montt",
+			distance: 848
+		},
+		{
+			name: "coyhaique",
+			distance: 1032
+		},
+		{
+			name: "punta_arenas",
+			distance: 1888
+		},
+		{
+			name: "santiago",
+			distance: 3004
+		}
+	]
+} */
+
+
+
 
 function get_regiones(){
 	return [
@@ -146,3 +219,4 @@ function get_regiones(){
 		}
 	]
 }
+

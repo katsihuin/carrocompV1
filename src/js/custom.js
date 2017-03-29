@@ -1,15 +1,20 @@
 $(document).on('ready', init);
 
 var map;
-var currentMarker = null;
+var origen = $('#start');
+var destino = $('#end');
 var directionsDisplay = null;
 var directionsService = null;
 
 function init() {
-    $(".list-car .list").on('mouseover', onMouseOver);
-    $(".list-car .list").on('mouseleave', onMouseLeave);
-    $("car-list-container").hide();
-    getMyLocation();
+  $('#btn-search').on('click', onValidateCity);
+  //$('#btn-share').on('click', onValidateVehicle);
+  $("car-list-container").hide();
+  $(".list-car .list").on('mouseover', onMouseOver);
+  $(".list-car .list").on('mouseleave', onMouseLeave);
+  $("car-list-container").hide();
+  getMyLocation();
+  addClickEvent();
 }
 
 function getMyLocation() {
@@ -34,12 +39,9 @@ function geoSuccess(position) {
   //createMarker(position);
 }
 
-//función Error
 function geoError() {
   alert("Geocoder falló.");
 }
-
-
 
 function initMap(latLng) {
   var directionsService = new google.maps.DirectionsService;
@@ -71,16 +73,61 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   });
 }
 
-function displayCars(){
-    var e = document.getElementById("start");
-    var strUser = e.options[e.selectedIndex].value;
+function onValidateCity() {    
+    if (origen.val() === ''||destino.val() === '') {
+        
+        swal({
+                title: "¡Formulario Incompleto!",
+                text:"Desbes escoger ciudad de origen y destino",
+            });
     
-	if (strUser == null){
-		alert("Debe escoger una ciudad");
-	}else{
-    	$('#car-list-container').show();
-	}
-	
+    } else {
+        $('#car-list-container').css({ 'display': 'inline-block'});
+        $('#btn-share').attr('disabled', false);
+
+        var ciudadOrigen = origen.val(),
+     ciudadDestino = destino.val();
+    //addCitiesToSystem(sCiudadOrigen, sCiudadDestino); 
+        calculateDistance();
+    }          
+}
+
+//esta funcion encuentra la distancia por cada ciudad
+function getDistanceStart(){
+  var distanceStart=0; 
+  var regions = get_regiones();
+        
+    for(var i in regions){
+        
+        if (regions[i].name === origen ) {
+            var distanceStart = regions[i].distance;
+            //console.log(regions[i].distance); 
+        } 
+    return distanceStart;    
+  }
+
+}
+
+function getDistanceEnd(){
+  var distanceEnd=0; 
+  var regions = get_regiones();
+        
+    for(var i in regions){
+        
+        if (regions[i].name === origen ) {
+            var distanceEnd = regions[i].distance;
+            //console.log(regions[i].distance);         
+        } 
+    return distanceEnd;
+  }
+
+}
+function calculateDistance() {
+    var distance = parseInt(getDistanceStart())+ parseInt(getDistanceEnd());
+    //display the result
+    var divobj = document.getElementById('totalPrice');
+    divobj.style.display='block';
+    divobj.innerHTML = "Total Price For the Cake $"+distance;
 }
 
 function onMouseOver() {
@@ -92,6 +139,7 @@ function onMouseLeave() {
 	$(this).removeClass("active");
     $(this).removeClass("purple");
 }
+
 
 function addClickEvent(){
 	var list = $('.form-group');
@@ -109,7 +157,7 @@ function onClickList(event){
 	var carSeats= $(event.currentTarget).find('#carSeatsPickUp').text();
 	localStorage.setItem('srcCarSeats', carSeats);
 	
-	if(name=='Line')
+	if(name=='Motocicleta')
     {
     	localStorage.setItem('type',1); 
     	chooseCar = true;
