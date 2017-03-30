@@ -7,6 +7,6 @@ function Moto(){
     $('#carImgRequest').attr({'src': localStorage.getItem('srcCarImg')});
 	$('#carNameRequest').text(localStorage.getItem('srcCarName'));
 	$('#carSeatsRequest').text(localStorage.getItem('srcCarSeats'));
-	}
+
 }
 	

@@ -8,7 +8,7 @@ var directionsService = null;
 
 function init() {
   $('#btn-search').on('click', onValidateCity);
-  //$('#btn-share').on('click', onValidateVehicle);
+  $('#btn-share').on('click', onValidateVehicle);
   $("car-list-container").hide();
   $(".list-car .list").on('mouseover', onMouseOver);
   $(".list-car .list").on('mouseleave', onMouseLeave);
@@ -124,6 +124,7 @@ function getDistanceEnd(){
 }
 function calculateDistance() {
     var distance = parseInt(getDistanceStart())+ parseInt(getDistanceEnd());
+    return distance;
     //display the result
 }
 
@@ -176,4 +177,67 @@ function onClickList(event){
     }
 }
 
+function  onValidateVehicle(campo){
+  if (campo==='vehicle'){
+            opciones = document.getElementsByName(campo);
+            var seleccionado = false;
+            for(var i=0; i<opciones.length; i++) {    
+              if(opciones[i].checked) {
+                seleccionado = true;
+                break;
+              }
+            }
+             
+            if(!seleccionado) {
+            swal({
+                title: "¡Formulario Incompleto!",
+                text:"Desbes escoger un vehiculo",
+            });
+                return false;
+            }
+            else{
+               swal({
+                title: "¡Gracias!",
+                text:"Escogiste un vehiculo",
+            });
+                //validatePassengers();
+                return true;
+            }
+        }
+}
 
+
+function  validatePassengers(campo){
+  if (campo==='txtId')
+        {
+            txtId = document.getElementById(campo).value;
+            if( txtId == null || txtId.length == 0 || /^\s+$/.test(txtId) ) {
+                swal({
+                title: "¡Formulario Incompleto!",
+                text:"DeNo ingresaste el numero de pasajeros",
+            });
+                return false;
+
+            }
+            else
+            {
+                if(isNaN(txtId)) {
+                  swal({
+                    title: "¡Formulario Incorrecto!",
+                    text:"No se acepta letras",
+                });
+                    return false;
+                }
+                else{
+                    swal({
+                      title: "¡Felicitaciones!",
+                      text:"Completaste el formulario",
+                  }); 
+                    return true;
+                }
+                
+                
+            }
+            
+        }
+}

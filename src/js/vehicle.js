@@ -21,3 +21,5 @@ function get_vehicle(){
             kml:6
         }
     ]
+
+}
