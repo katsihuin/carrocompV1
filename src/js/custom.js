@@ -207,7 +207,7 @@ function  onValidateVehicle(campo){
 }
 
 
-function  validatePassengers(campo){
+function  onvalidatePassengers(campo){
   if (campo==='txtId')
         {
             txtId = document.getElementById(campo).value;
