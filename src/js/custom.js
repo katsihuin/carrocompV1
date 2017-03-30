@@ -183,6 +183,10 @@ function verificar(){
         var v1=0,v2=0;
         v1=validacion('txtId');
         v2=validacion('vehicle');
+        var moto = localStorage.getItem("type")==1;
+        var moto = localStorage.getItem("type")==2;
+        var moto = localStorage.getItem("type")==3;
+        var moto = localStorage.getItem("type")==4;
         var imgVehicle=localStorage.getItem('imgCar');
         if (v1===false || v2===false ) 
         {
@@ -194,13 +198,15 @@ function verificar(){
         else
         {
             swal({
-                title: "¡Formulario correctamente enviado!",
-                imageUrl: "imgVehicle"
+                text: "carrcomp!",
+                imageUrl: "imgVehicle",
+                text:"Costo por persona",
+                title:"$3670 CLP,"
             });
         }
     } 
 
-function  onValidateInput(campo){
+function  validacion(campo){
   var a=0;
   if (campo==='vehicle'){
             opciones = document.getElementsByName(campo);
@@ -226,11 +232,15 @@ function  onValidateInput(campo){
             });
                 //validatePassengers();
                 return true;
+                
+                
+                
             }
         }
 
   if (campo==='txtId')
         {
+            var moto = 
             txtId = document.getElementById(campo).value;
             if( txtId == null || txtId.length == 0 || /^\s+$/.test(txtId) ) {
                 swal({

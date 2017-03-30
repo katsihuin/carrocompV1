@@ -115,7 +115,7 @@
                    <div class="form-group list">
                        <div class="col-sm-2 col-xs-2 ">
                           <label class="radio-inline">
-                                <input id="moto" type="radio" name="vehicle" value="M">
+                                <input id="moto" type="radio" name="vehicle" value="M" onclick="validacion('vehicle')">
                             </label>
                         </div>
                         <div class= "col-sm-3 col-xs-3">
@@ -128,7 +128,7 @@
                     <div class="form-group list">
                        <div class="col-sm-2 col-xs-2 ">
                           <label class="radio-inline">
-                                <input id="auto" type="radio" name="vehicle" value="M">
+                                <input id="auto" type="radio" name="vehicle" value="M" onclick="validacion('vehicle')">
                             </label>
                         </div>
                         <div class= "col-sm-3 col-xs-3">
@@ -141,7 +141,7 @@
                     <div class="form-group list">
                        <div class="col-sm-2 col-xs-2">
                           <label class="radio-inline">
-                                <input id="mini" type="radio" name="vehicle" value="M" >
+                                <input id="mini" type="radio" name="vehicle" value="M" onclick="validacion('vehicle')">
                             </label>
                         </div>
                         <div class= "col-sm-3 col-xs-3">
@@ -154,7 +154,7 @@
                     <div class="form-group list">
                        <div class="col-sm-2 col-xs-2">
                           <label class="radio-inline">
-                                <input id="camion" type="radio" name="vehicle" value="M">
+                                <input id="camion" type="radio" name="vehicle" value="M" onclick="validacion('vehicle')">
                             </label>
                         </div>
                         <div class= "col-sm-3 col-xs-3">
@@ -167,7 +167,7 @@
                     <div class="form-group">
 	                        <label for="txtId" class="control-label col-xs-9">Cantidad de Pasajeros:</label>
 	                        <div class="col-xs-3 input-box">
-	                            <input id="txtId" name="txtId" type="text" class="form-control" placeholder="" onkeyup="onvalidatePassengers(campo);">
+	                            <input id="txtId" name="txtId" type="text" class="form-control" placeholder="" onkeyup="validacion('txtId');">
 	                            <span class="help-block" style="display: none;">#max</span>
 	                        </div>
 	                    </div>
