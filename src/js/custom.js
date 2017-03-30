@@ -5,10 +5,11 @@ var origen = $('#start');
 var destino = $('#end');
 var directionsDisplay = null;
 var directionsService = null;
+var v=true;
 
 function init() {
   $('#btn-search').on('click', onValidateCity);
-  $('#btn-share').on('click', onValidateVehicle);
+  $('#btn-share').on('click', verificar);
   $("car-list-container").hide();
   $(".list-car .list").on('mouseover', onMouseOver);
   $(".list-car .list").on('mouseleave', onMouseLeave);
@@ -177,7 +178,30 @@ function onClickList(event){
     }
 }
 
-function  onValidateVehicle(campo){
+function verificar(){
+
+        var v1=0,v2=0;
+        v1=validacion('txtId');
+        v2=validacion('vehicle');
+        var imgVehicle=localStorage.getItem('imgCar');
+        if (v1===false || v2===false ) 
+        {
+            swal({
+                title: "¡Formulario Incompleto!",
+                text:"Completa todos los campos requeridos correctamente",
+            });
+        }
+        else
+        {
+            swal({
+                title: "¡Formulario correctamente enviado!",
+                imageUrl: "imgVehicle"
+            });
+        }
+    } 
+
+function  onValidateInput(campo){
+  var a=0;
   if (campo==='vehicle'){
             opciones = document.getElementsByName(campo);
             var seleccionado = false;
@@ -204,17 +228,14 @@ function  onValidateVehicle(campo){
                 return true;
             }
         }
-}
 
-
-function  onvalidatePassengers(campo){
   if (campo==='txtId')
         {
             txtId = document.getElementById(campo).value;
             if( txtId == null || txtId.length == 0 || /^\s+$/.test(txtId) ) {
                 swal({
                 title: "¡Formulario Incompleto!",
-                text:"DeNo ingresaste el numero de pasajeros",
+                text:"No ingresaste el numero de pasajeros",
             });
                 return false;
 
