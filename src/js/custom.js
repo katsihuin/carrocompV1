@@ -102,7 +102,6 @@ function getDistanceStart(){
         
         if (regions[i].name === origen ) {
             var distanceStart = regions[i].distance;
-            //console.log(regions[i].distance); 
         } 
     return distanceStart;    
   }
@@ -116,8 +115,7 @@ function getDistanceEnd(){
     for(var i in regions){
         
         if (regions[i].name === origen ) {
-            var distanceEnd = regions[i].distance;
-            //console.log(regions[i].distance);         
+            var distanceEnd = regions[i].distance;       
         } 
     return distanceEnd;
   }
